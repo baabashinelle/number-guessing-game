@@ -13,4 +13,25 @@ else:
     quit()
 
 r_number = random.randrange(top_of_range)
-print(r_number)
+guesses = 0
+
+
+while True:
+    guesses += 1
+    user_guess = input("Guess a number: ")
+    if user_guess.isdigit(): #checking if input is a digit
+        user_guess = int(user_guess)
+    else:
+        print("Kindly type a number next time")
+        continue #goes back to the top of the loop
+
+    if user_guess == r_number:
+        print("You got it!")
+        break #stops the loop
+    else:
+        if user_guess > r_number:
+            print("You were above the number!")
+        else:
+            print("You were below the number!")
+
+print("You got it right in", guesses, "guesses")
